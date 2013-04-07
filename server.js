@@ -4,7 +4,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var history = [];
 
-server.listen(8080);
+server.listen(4000);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -12,7 +12,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('history', function() {
 		if (history.length>0) {
 			var msg = JSON.stringify(history);
-			io.sockets.emit('new', msg);
+			io.sockets.emit('history', msg);
 		}
 
 	}),
