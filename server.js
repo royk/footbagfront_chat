@@ -10,11 +10,8 @@ app.use(express.static(__dirname + '/public'));
 
 io.sockets.on('connection', function (socket) {
 	socket.on('history', function() {
-		if (history.length>0) {
-			var msg = JSON.stringify(history);
-			io.sockets.emit('history', msg);
-		}
-
+		var msg = JSON.stringify(history);
+		io.sockets.emit('history', msg);
 	}),
 	socket.on('msg', function (data) {
 	  	history.push(data);
