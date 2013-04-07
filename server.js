@@ -4,7 +4,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var history = [];
 
-server.listen(4000);
+server.listen(8080);
 
 app.use(express.static(__dirname + '/public'));
 
